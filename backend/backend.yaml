@@ -45,7 +45,7 @@
 
     - name: Copy backend service configuration
       ansible.builtin.copy:
-        src: backend.service
+        src: backend.repo
         dest: /etc/systemd/system/backend.service
 
     - name: Reload systemd daemon
