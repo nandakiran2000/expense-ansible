@@ -31,7 +31,7 @@
 
     - name: Copy frontend service configuration
       ansible.builtin.copy:
-        src: frontend.service
+        src: frontend.conf
         dest: /etc/systemd/system/frontend.service
 
     - name: Restart Nginx
