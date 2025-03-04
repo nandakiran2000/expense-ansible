@@ -59,9 +59,7 @@
         enabled: yes
 
     - name: Install MySQL client
-      ansible.builtin.package:
-        name: mysql
-        state: present
+      ansible.builtin.shell: dnf install mysql -y
 
     - name: Load database schema
       ansible.builtin.shell: mysql -h database.nanda.cfd -uroot -pExpenseApp@1 < /app/schema/backend.sql
