@@ -3,18 +3,24 @@
   become: yes
   tasks:
     - name: Disable and enable NodeJS 20
-      ansible.builtin.shell: |
-        dnf module disable nodejs -y
-        dnf module enable nodejs:20 -y
-        dnf install nodejs -y
-      
+      ansible.builtin.shell: dnf module disable nodejs -y ; dnf module enable nodejs:20 -y
+    
+    - name: Install nodejs
+      ansible.builtin.package:
+        name: nodejs
+        state: present
 
     - name: Add application user
       ansible.builtin.user:
         name: expense
         state: present
 
-    - name: Ensure /app directory exists
+    - name: Recursively remove directory   #if directory exists or any previous directory del it
+      ansible.builtin.file:
+        path: /app
+        state: absent
+
+    - name: create app directory 
       ansible.builtin.file:
         path: /app
         state: directory
