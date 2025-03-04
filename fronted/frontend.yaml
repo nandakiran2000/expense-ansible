@@ -33,7 +33,6 @@
       ansible.builtin.copy:
         src: frontend.service
         dest: /etc/systemd/system/frontend.service
-        mode: '0644'
 
     - name: Restart Nginx
       ansible.builtin.service:
