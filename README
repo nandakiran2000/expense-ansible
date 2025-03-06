@@ -1,0 +1,7 @@
+Project is having the following components.
+
+Frontend for Web
+Backend for API
+Database
+
+ansible-playbook -i inventory.ini -e ansible_user=ec2-user -e ansible_password=DevOps321 frontend.yaml
